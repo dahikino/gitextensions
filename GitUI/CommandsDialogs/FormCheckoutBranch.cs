@@ -11,6 +11,7 @@ using GitUI.Script;
 using GitUIPluginInterfaces;
 using Microsoft.VisualStudio.Threading;
 using PSTaskDialog;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using ResourceManager;
 
 namespace GitUI.CommandsDialogs
@@ -381,19 +382,22 @@ namespace GitUI.CommandsDialogs
                     bool? messageBoxResult = AppSettings.AutoPopStashAfterCheckoutBranch;
                     if (messageBoxResult == null)
                     {
-                        DialogResult res = cTaskDialog.MessageBox(
-                            this,
-                            _applyStashedItemsAgainCaption.Text,
-                            "",
-                            _applyStashedItemsAgain.Text,
-                            "",
-                            "",
-                            _dontShowAgain.Text,
-                            eTaskDialogButtons.YesNo,
-                            eSysIcons.Question,
-                            eSysIcons.Question);
-                        messageBoxResult = res == DialogResult.Yes;
-                        if (cTaskDialog.VerificationChecked)
+                        using var dialog = new TaskDialog
+                        {
+                            OwnerWindowHandle = this.Handle,
+                            Text = _applyStashedItemsAgain.Text,
+                            Caption = _applyStashedItemsAgainCaption.Text,
+                            Icon =  TaskDialogStandardIcon.Information,
+                            FooterCheckBoxText = _dontShowAgain.Text,
+                            FooterIcon = TaskDialogStandardIcon.Information,
+                            StartupLocation = TaskDialogStartupLocation.CenterOwner
+                        };
+                        dialog.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+
+                        TaskDialogResult result = dialog.Show();
+                        messageBoxResult = result == TaskDialogResult.Yes;
+
+                        if (dialog.FooterCheckBoxChecked == true)
                         {
                             AppSettings.AutoPopStashAfterCheckoutBranch = messageBoxResult;
                         }
