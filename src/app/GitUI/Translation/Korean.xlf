@@ -2335,7 +2335,7 @@ Suitable for some config files modified locally.</source>
         
       </trans-unit>
       <trans-unit id="tsmiStageFile.Text">
-        <source>&amp;Stage selected</source>
+        <source>&amp;Stage file(s)</source>
         <target>선택항목 Stage (&amp;S)</target>
         
       </trans-unit>
@@ -2355,7 +2355,7 @@ Suitable for some config files modified locally.</source>
         
       </trans-unit>
       <trans-unit id="tsmiUnstageFile.Text">
-        <source>&amp;Unstage selected</source>
+        <source>&amp;Unstage file(s)</source>
         <target>선택항목 Unstage (&amp;U)</target>
         
       </trans-unit>

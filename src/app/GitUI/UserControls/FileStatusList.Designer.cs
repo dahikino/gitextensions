@@ -746,7 +746,7 @@ partial class FileStatusList
         tsmiStageFile.Image = Properties.Images.Stage;
         tsmiStageFile.Name = "tsmiStageFile";
         tsmiStageFile.Size = new Size(295, 22);
-        tsmiStageFile.Text = "&Stage selected";
+        tsmiStageFile.Text = "&Stage file(s)";
         tsmiStageFile.Click += StageFile_Click;
         // 
         // tsmiUnstageFile
@@ -754,7 +754,7 @@ partial class FileStatusList
         tsmiUnstageFile.Image = Properties.Images.Unstage;
         tsmiUnstageFile.Name = "tsmiUnstageFile";
         tsmiUnstageFile.Size = new Size(295, 22);
-        tsmiUnstageFile.Text = "&Unstage selected";
+        tsmiUnstageFile.Text = "&Unstage file(s)";
         tsmiUnstageFile.Click += UnstageFile_Click;
         // 
         // tsmiResetFileTo

@@ -2228,7 +2228,7 @@ Suitable for some config files modified locally.</source>
         
       </trans-unit>
       <trans-unit id="tsmiStageFile.Text">
-        <source>&amp;Stage selected</source>
+        <source>&amp;Stage file(s)</source>
         
       </trans-unit>
       <trans-unit id="tsmiStashSubmoduleChanges.Text">
@@ -2244,7 +2244,7 @@ Suitable for some config files modified locally.</source>
         
       </trans-unit>
       <trans-unit id="tsmiUnstageFile.Text">
-        <source>&amp;Unstage selected</source>
+        <source>&amp;Unstage file(s)</source>
         
       </trans-unit>
       <trans-unit id="tsmiUpdateSubmodule.Text">

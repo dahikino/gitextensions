@@ -2337,7 +2337,7 @@ Suitable for some config files modified locally.</source>
         
       </trans-unit>
       <trans-unit id="tsmiStageFile.Text">
-        <source>&amp;Stage selected</source>
+        <source>&amp;Stage file(s)</source>
         <target>選択済みをステージに追加(&amp;S)</target>
         
       </trans-unit>
@@ -2357,7 +2357,7 @@ Suitable for some config files modified locally.</source>
         
       </trans-unit>
       <trans-unit id="tsmiUnstageFile.Text">
-        <source>&amp;Unstage selected</source>
+        <source>&amp;Unstage file(s)</source>
         <target>選択済みをステージ取り消し(&amp;U)</target>
         
       </trans-unit>
