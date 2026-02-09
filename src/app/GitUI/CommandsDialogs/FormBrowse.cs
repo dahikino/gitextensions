@@ -2563,6 +2563,14 @@ public sealed partial class FormBrowse : GitModuleForm, IBrowseRepo
 
     private List<ToolStripItem> PopulateToolbar(SubmoduleInfoResult result)
     {
+        bool hasSubmodules = result.OurSubmodules.Count > 0 || result.SuperProject is not null;
+
+        toolStripButtonLevelUp.Visible = hasSubmodules;
+        manageSubmodulesToolStripMenuItem.Visible = hasSubmodules;
+        updateAllSubmodulesToolStripMenuItem.Visible = hasSubmodules;
+        synchronizeAllSubmodulesToolStripMenuItem.Visible = hasSubmodules;
+        toolStripSeparator43.Visible = hasSubmodules;
+
         // Second task: Populate submodule toolbar menu on UI thread.
         // Suspend before clearing dropdowns to show loading text until updated
         toolStripButtonLevelUp.DropDown.SuspendLayout();
