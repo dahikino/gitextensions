@@ -264,7 +264,7 @@ public partial class FileViewer : GitModuleControl
             {
                 if (_encoding is not null)
                 {
-                    encodingToolStripComboBox.Text = _encoding.EncodingName;
+                    encodingToolStripComboBox.SelectedItem = _encoding;
                 }
                 else
                 {
@@ -915,8 +915,8 @@ public partial class FileViewer : GitModuleControl
 
         Font = AppSettings.FixedWidthFont;
 
-        string[] encodings = [.. AppSettings.AvailableEncodings.Values.Select(e => e.EncodingName)];
-        encodingToolStripComboBox.Items.AddRange(encodings);
+        encodingToolStripComboBox.ComboBox.DisplayMember = nameof(Encoding.EncodingName);
+        encodingToolStripComboBox.Items.AddRange([.. AppSettings.AvailableEncodings.Values]);
         encodingToolStripComboBox.ResizeDropDownWidth(minWidth: 50, maxWidth: 250);
     }
 
@@ -2048,17 +2048,7 @@ public partial class FileViewer : GitModuleControl
 
     private void encodingToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Encoding encod;
-        if (string.IsNullOrEmpty(encodingToolStripComboBox.Text))
-        {
-            encod = Module.FilesEncoding;
-        }
-        else
-        {
-            encod = AppSettings.AvailableEncodings.Values
-                .FirstOrDefault(en => en.EncodingName == encodingToolStripComboBox.Text)
-                    ?? Module.FilesEncoding;
-        }
+        Encoding encod = encodingToolStripComboBox.SelectedItem as Encoding ?? Module.FilesEncoding;
 
         if (!encod.Equals(Encoding))
         {
@@ -2073,7 +2063,7 @@ public partial class FileViewer : GitModuleControl
         {
             if (Encoding is not null)
             {
-                encodingToolStripComboBox.Text = Encoding.EncodingName;
+                encodingToolStripComboBox.SelectedItem = Encoding;
             }
         }
     }
