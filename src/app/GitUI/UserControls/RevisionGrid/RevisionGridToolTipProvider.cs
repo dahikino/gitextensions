@@ -20,13 +20,13 @@ internal sealed class RevisionGridToolTipProvider
     /// <summary>
     /// Hides the tooltip.
     /// </summary>
-    /// <returns>Returns <cref>true</cref> if the tooltip was active.</returns>
+    /// <returns>Returns <see langword="true"/> if the tooltip was showing.</returns>
     public bool Hide()
     {
-        bool wasActive = _toolTip.Active;
+        bool wasShowing = _toolTip.Active && !string.IsNullOrEmpty(_toolTip.GetToolTip(_gridView));
         _toolTip.Active = false;
         _toolTip.AutoPopDelay = 32767;
-        return wasActive;
+        return wasShowing;
     }
 
     public void OnCellMouseMove(DataGridViewCellMouseEventArgs e)

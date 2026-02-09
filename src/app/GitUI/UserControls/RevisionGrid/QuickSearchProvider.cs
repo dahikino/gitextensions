@@ -99,7 +99,7 @@ internal sealed class QuickSearchProvider
 
     public void OnPreviewKeyDown(PreviewKeyDownEventArgs e)
     {
-        if (e.KeyCode == Keys.Escape)
+        if (e.KeyCode == Keys.Escape && _label.Visible)
         {
             HideQuickSearchString();
         }
